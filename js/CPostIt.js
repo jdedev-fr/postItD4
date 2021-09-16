@@ -52,6 +52,15 @@ class PostIt {
         let menu = document.createElement('div')
         menu.classList.add('bottomMenu')
 
+        let btnDel = document.createElement('i')
+        btnDel.classList.add("fas", "fa-eraser")
+        btnDel.addEventListener('click', (e) => {
+            document.body.removeChild(monPost)
+            suppPostIt(this.num)
+            e.stopPropagation()
+        })
+        menu.appendChild(btnDel)
+
         let btnEdit = document.createElement('i')
         btnEdit.classList.add("fas", "fa-user-edit")
         btnEdit.addEventListener('click', (e) => {

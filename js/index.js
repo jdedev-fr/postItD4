@@ -49,3 +49,9 @@ document.addEventListener('keydown', (e) => {
 setInterval(() => {
     document.querySelector('.debug').innerHTML = "numpostit = " + numPostit + " | action = " + action + " | pos souris X = " + mPX + " | pos souris Y = " + mPY
 }, 500);
+
+function suppPostIt(num) {
+    //tabPostIt.splice(num, 1)
+    delete tabPostIt[num]
+    console.log(tabPostIt.length)
+}
