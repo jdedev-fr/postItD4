@@ -3,7 +3,7 @@ let tabPostIt = []
 let numPostit = -1
 let action = ""
 let mPX = 0
-let mpY = 0
+let mPY = 0
 
 document.getElementById('ajoutP').addEventListener('click', () => {
     tabPostIt.push(new PostIt(tabPostIt.length))
@@ -12,9 +12,13 @@ document.getElementById('ajoutP').addEventListener('click', () => {
 
 document.addEventListener('mousemove', (event) => {
     mPX = event.clientX
-    mpY = event.clientY
+    mPY = event.clientY
     if (numPostit !== -1 && action === "deplace") {
-        tabPostIt[numPostit].deplace(mPX - tabPostIt[numPostit].largeur, mpY - tabPostIt[numPostit].hauteur)
+        tabPostIt[numPostit].deplace(mPX - tabPostIt[numPostit].largeur, mPY - tabPostIt[numPostit].hauteur)
+        tabPostIt[numPostit].affichage()
+    }
+    if (numPostit !== -1 && action === "redim") {
+        tabPostIt[numPostit].redim(tabPostIt[numPostit].largOrig + (mPX - tabPostIt[numPostit].sourisXOrig), tabPostIt[numPostit].hautOrig + (mPY - tabPostIt[numPostit].sourisYOrig))
         tabPostIt[numPostit].affichage()
     }
 })
@@ -43,5 +47,5 @@ document.addEventListener('keydown', (e) => {
     }
 })
 setInterval(() => {
-    document.querySelector('.debug').innerHTML = "numpostit = " + numPostit + " | action = " + action + " | pos souris X = " + mPX + " | pos souris Y = " + mpY
+    document.querySelector('.debug').innerHTML = "numpostit = " + numPostit + " | action = " + action + " | pos souris X = " + mPX + " | pos souris Y = " + mPY
 }, 500);

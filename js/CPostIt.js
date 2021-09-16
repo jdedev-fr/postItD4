@@ -66,6 +66,25 @@ class PostIt {
         })
         menu.appendChild(btnEdit)
 
+        let btnResize = document.createElement('i')
+        btnResize.title = "redim"
+        btnResize.classList.add("fas", "fa-crop-alt")
+        btnResize.addEventListener('click', (e) => {
+            if (numPostit !== this.num) {
+                numPostit = this.num
+                action = "redim"
+                this.largOrig = this.largeur
+                this.hautOrig = this.hauteur
+                this.sourisXOrig = mPX
+                this.sourisYOrig = mPY
+            } else {
+                numPostit = -1
+                action = ""
+            }
+            e.stopPropagation()
+        })
+        menu.appendChild(btnResize)
+
         let btnDeplace = document.createElement('i')
         btnDeplace.classList.add("fas", "fa-suitcase-rolling")
         btnDeplace.addEventListener('click', e => {
