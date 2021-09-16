@@ -50,8 +50,14 @@ setInterval(() => {
     document.querySelector('.debug').innerHTML = "numpostit = " + numPostit + " | action = " + action + " | pos souris X = " + mPX + " | pos souris Y = " + mPY
 }, 500);
 
+/**
+ * Fonction qui supprime un postit dans le tableau
+ * 
+ * @param {number} num - numéro du post it à supprimer
+ */
 function suppPostIt(num) {
     //tabPostIt.splice(num, 1)
     delete tabPostIt[num]
     console.log(tabPostIt.length)
+
 }
