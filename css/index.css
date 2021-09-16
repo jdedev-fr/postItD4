@@ -16,3 +16,17 @@
     background-color: black;
     color: cornflowerblue;
 }
+
+.bottomMenu {
+    position: absolute;
+    bottom: 0;
+    right:0;
+    height: 20px;
+}
+
+.debug {
+    background-color: lightcoral;
+    width: 500px;
+    height: 50px;
+    border: black 1px solid;
+}

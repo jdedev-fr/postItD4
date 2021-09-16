@@ -49,6 +49,24 @@ class PostIt {
         monPost.style.backgroundColor = this.couleur
         monPost.innerHTML = this.contenu
 
+        let menu = document.createElement('div')
+        menu.classList.add('bottomMenu')
+
+        let btnDeplace = document.createElement('i')
+        btnDeplace.classList.add("fas", "fa-suitcase-rolling")
+        btnDeplace.addEventListener('click', () => {
+            if (numPostit !== this.num) {
+                numPostit = this.num
+                action = "deplace"
+            } else {
+                numPostit = -1
+                action = ""
+            }
+        })
+        menu.appendChild(btnDeplace)
+
+        monPost.appendChild(menu)
+
         if (newPost) {
             document.body.appendChild(monPost)
         }
