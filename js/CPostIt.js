@@ -52,9 +52,23 @@ class PostIt {
         let menu = document.createElement('div')
         menu.classList.add('bottomMenu')
 
+        let btnEdit = document.createElement('i')
+        btnEdit.classList.add("fas", "fa-user-edit")
+        btnEdit.addEventListener('click', (e) => {
+            if (numPostit !== this.num) {
+                numPostit = this.num
+                action = "edit"
+            } else {
+                numPostit = -1
+                action = ""
+            }
+            e.stopPropagation()
+        })
+        menu.appendChild(btnEdit)
+
         let btnDeplace = document.createElement('i')
         btnDeplace.classList.add("fas", "fa-suitcase-rolling")
-        btnDeplace.addEventListener('click', () => {
+        btnDeplace.addEventListener('click', e => {
             if (numPostit !== this.num) {
                 numPostit = this.num
                 action = "deplace"
@@ -62,6 +76,7 @@ class PostIt {
                 numPostit = -1
                 action = ""
             }
+            e.stopPropagation()
         })
         menu.appendChild(btnDeplace)
 

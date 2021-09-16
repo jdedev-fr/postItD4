@@ -19,6 +19,29 @@ document.addEventListener('mousemove', (event) => {
     }
 })
 
+document.addEventListener('click', () => {
+    numPostit = -1
+    action = ""
+})
+
+document.addEventListener('keydown', (e) => {
+    console.log(e)
+    if (numPostit !== -1 && action === "edit") {
+        if (e.key === "Shift" || e.key === "Control") { }
+        else if (e.key === "Enter") {
+            tabPostIt[numPostit].edition(tabPostIt[numPostit].contenu + "<br>")
+            tabPostIt[numPostit].affichage()
+        }
+        else if (e.key === "Backspace") {
+            tabPostIt[numPostit].edition(tabPostIt[numPostit].contenu.substr(0, tabPostIt[numPostit].contenu.length - 1))
+            tabPostIt[numPostit].affichage()
+        }
+        else {
+            tabPostIt[numPostit].edition(tabPostIt[numPostit].contenu + e.key)
+            tabPostIt[numPostit].affichage()
+        }
+    }
+})
 setInterval(() => {
     document.querySelector('.debug').innerHTML = "numpostit = " + numPostit + " | action = " + action + " | pos souris X = " + mPX + " | pos souris Y = " + mpY
 }, 500);
