@@ -37,6 +37,7 @@ class PostIt {
         if (monPost === null) {
             newPost = true
             monPost = document.createElement('div')
+            monPost.classList.add('postIt')
             monPost.id = "postit" + this.num
         }
 

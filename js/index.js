@@ -1,11 +1,6 @@
-let lePost = new PostIt(1)
-lePost.affichage()
+let tabPostIt = []
 
-lePost.deplace(300, 400)
-lePost.affichage()
-
-lePost.redim(50, 300)
-lePost.affichage()
-
-lePost.edition("coucou")
-lePost.affichage()
+document.getElementById('ajoutP').addEventListener('click', () => {
+    tabPostIt.push(new PostIt(tabPostIt.length))
+    tabPostIt[tabPostIt.length - 1].affichage()
+})

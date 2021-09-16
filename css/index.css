@@ -1,0 +1,18 @@
+.postIt {
+    padding: 5px;
+    border-radius: 3px;
+}
+
+#ajoutP {
+    border-radius: 3px;
+    background-color: cornflowerblue;
+    color: black;
+    font-weight: bold;
+    border-style: none;
+    padding: 5px 30px;
+}
+#ajoutP:hover {
+    cursor: pointer;
+    background-color: black;
+    color: cornflowerblue;
+}
